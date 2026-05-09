@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <title>Home Page</title>
+        <link type="text/css" href="example.css" rel="stylesheet"/>
+        <style type="text/css">
+            *{
+                text-decoration: none;
+            }
+            .navbar{
+                background: lightsteelblue;
+            }
+            .navdiv{
+                display: flex; align-items: center; justify-content: space-between;
+            }
+            li{
+                list-style: none; display: inline-block;
+            }
+            li a{
+                color: black; font-size: 18px; font-weight: bold; margin-right: 25px;
+            }
+            body{
+                background: lightslategrey;
+            }
+
+            
+            .carousel {
+                width: 600px;
+                height: 350px;
+                margin: auto;
+                overflow: hidden;
+                position: relative;
+                border-radius: 10px;
+            }
+
+            .slides {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.5s ease;
+            }
+
+            .slides img {
+                width: 600px;
+                height: 350px;
+                object-fit: cover;
+            }
+
+            .btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.5);
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                font-size: 18px;
+                border-radius: 5px;
+            }
+
+            .prev { left: 10px; }
+            .next { right: 10px; }
+        </style>
+    </head>
+
+
+    <body>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h1>About Me!</h1>
+            <h3>Personal Life</h3>
+            <p>
+                I grew up near this family farm. I never thought about this farm really. 
+                I only knew we got our christmas tree from them every year. When I turned 16
+                I knew I wanted to start making my own money. So, I decided I was going to ask
+                the farm if they needed any help. If you told me it would lead to the most important
+                memories and learning moments in my life I would have never believed you.
+            </p>
+
+            <p>
+                After 6 years of working on the farm, I have grown from the little kid I used to be
+                to the man graduating next year. I love the farm and farming is something I will 
+                always carry with me. The memories skill, but most importantly the person I am today 
+                comes from everything I learned and grew through during my years working on the farm.
+            </p>
+    <!-- Slideshow container -->
+    <div class="carousel">
+        <div class="slides" id="slides">
+            <img src="./images/child1.JPG">
+            <img src="./images/child2.JPG">
+            <img src="./images/farm1.png">
+            <img src="./images/farm2.png">
+            <img src="./images/farm3.png">
+            <img src="./images/farm4.png">
+            <img src="./images/farm5.jpg">
+            <img src="./images/farm6.png">
+        </div>
+            <button class="btn prev" onclick="moveSlide(-1)">❮</button>
+            <button class="btn next" onclick="moveSlide(1)">❯</button>
+    </div>
+
+    <script>
+        let index = 0;
+        const slides = document.getElementById("slides");
+        const total = slides.children.length;
+
+    function moveSlide(direction) {
+        index = (index + direction + total) % total;
+        slides.style.transform = `translateX(${-index * 600}px)`;
+    }
+    </script>
+
+            <h3>Professional Life</h3>
+            <p>
+                I am a junior mechanical engineering student. 
+                I love taking on projects that push me to the limits of what I am capable of. 
+                I enjoy both mechanical design, but also the electrical and programing side of projects.
+            </p>
+            <p>
+                At Quinnipiac University I am a part of the university's BAJA SAE team as the driver 
+                safety and restraint designer. As a mechanical engineer with a minor in physics and 
+                computer science, I spend most of my time either working on personal machine/circuits 
+                projects or designing, testing and manufacturing parts for the BAJA car. 
+            </p>
+            
+        </main>
+    </body>
+
+</html>
